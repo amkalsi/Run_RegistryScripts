@@ -43,49 +43,6 @@ def write_json(main_obj_read):
          f.write(json.dumps(main_obj_read, indent=0, sort_keys=True))
 
 
-'''
-main_obj = {}
-for m in runs:
-
-     print ( m["run_number"]) 
-     oms_lumisections = runregistry.get_oms_lumisections(m["run_number"])
-
-     lumi_store = []
-     if m["run_number"] not in main_obj:
-          main_obj[m["run_number"]] = []
-               
-     check_range = False 
-     for lumi in range(0, len(oms_lumisections)):
-          if oms_lumisections[lumi]["fpix_ready"] == True and oms_lumisections[lumi]["bpix_ready"] == True and oms_lumisections[lumi]["tecm_ready"] == True and oms_lumisections[lumi]["tecp_ready"] == True and oms_lumisections[lumi]["tob_ready"] == True and oms_lumisections[lumi]["tibtid_ready"] == True and oms_lumisections[lumi]["cms_active"]  == True and oms_lumisections[lumi]["beam1_present"] == True and oms_lumisections[lumi]["beam2_present"] == True and oms_lumisections[lumi]["beam1_stable"] == True and oms_lumisections[lumi]["beam2_stable"] == True:
-               if check_range:
-                    start_of_current_range = main_obj[m["run_number"]][-1][0]
-                    main_obj[m["run_number"]][-1] = [start_of_current_range,lumi+1]
-
-
-               if check_range is False:     
-#               lumi_store.append(lumi+1)
-                    main_obj[m["run_number"]].append([lumi+1,lumi+1])
-                    check_range=True
-
-          
-
-          else:
-               check_range=False
-
-
-          
-#          if m["run_number"] not in main_obj:
-#          main_obj[m["run_number"]] = [] 
-
-#     main_obj[m["run_number"]].append([lumi_store[0], lumi_store[0]])
-
-     for el in main_obj:
-          main_obj[el] = sorted(main_obj[el], key=itemgetter(0))
-
-
-with open("json_hello.txt", "w") as f:
-     f.write(json.dumps(main_obj, indent=2, sort_keys=True))
-'''
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
